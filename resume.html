@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deepanshi — Resume | B.Tech Artificial Intelligence & Machine Learning</title>
+  <meta name="description" content="Professional, ATS-friendly one-page resume of Deepanshi, a first-year B.Tech student specializing in Artificial Intelligence & Machine Learning at JECRC University, Jaipur.">
+  <link rel="stylesheet" href="resume.css">
+</head>
+<body>
+
+  <!-- Floating Action Toolbar (Hidden during Print/PDF export) -->
+  <aside class="toolbar-container no-print" aria-label="Resume Actions">
+    <div class="toolbar-title">
+      <span>📄 Deepanshi — Resume</span>
+      <span class="toolbar-badge">1-Page ATS Standard</span>
+    </div>
+    <div class="toolbar-actions">
+      <span id="toastMsg" class="toast-msg">Changes Saved!</span>
+      <button id="btnEdit" class="btn btn-secondary" title="Click to edit any text directly on the page">
+        ✏️ Edit Resume
+      </button>
+      <button id="btnReset" class="btn btn-secondary" style="display:none;" title="Restore original template text">
+        🔄 Reset
+      </button>
+      <button id="btnCopyText" class="btn btn-secondary" title="Copy clean plain text for ATS application forms">
+        📋 Copy ATS Text
+      </button>
+      <button id="btnPrint" class="btn btn-primary" title="Print or save as high-quality PDF">
+        🖨️ Print / Save as PDF
+      </button>
+    </div>
+  </aside>
+
+  <!-- Resume Sheet (Strict Single A4 Sheet: 210mm x 297mm) -->
+  <main class="resume-sheet" id="resumeContent" itemscope itemtype="https://schema.org/Person">
+
+    <!-- 1. HEADER -->
+    <header class="resume-header">
+      <h1 class="applicant-name" itemprop="name">Deepanshi</h1>
+      <div class="applicant-title" itemprop="jobTitle">B.Tech in Artificial Intelligence &amp; Machine Learning</div>
+      <div class="applicant-institution">JECRC University, Jaipur</div>
+      <div class="contact-bar">
+        <div class="contact-row">
+          <span class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <a href="mailto:deepanshi.student@example.com" itemprop="email" class="editable-field" data-field="email">[email.placeholder@domain.com]</a>
+          </span>
+          <span class="contact-sep">•</span>
+          <span class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span class="editable-field" data-field="phone">[+91 98765 XXXXX]</span>
+          </span>
+          <span class="contact-sep">•</span>
+          <span class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span itemprop="addressLocality">Jaipur, Rajasthan</span>
+          </span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            <a href="https://www.linkedin.com/in/deepanshi-nawal-306968414/" target="_blank" rel="noopener noreferrer" class="editable-field" data-field="linkedin">linkedin.com/in/deepanshi-nawal-306968414</a>
+          </span>
+          <span class="contact-sep">•</span>
+          <span class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            <a href="https://github.com/deepanshi-placeholder" target="_blank" rel="noopener noreferrer" class="editable-field" data-field="github">github.com/[your-handle]</a>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. CAREER OBJECTIVE -->
+    <section class="section" id="objective" aria-labelledby="sec-objective">
+      <h2 class="section-title" id="sec-objective">Career Objective</h2>
+      <div class="section-content">
+        <p class="objective-text editable-field" data-field="objective">
+          Ambitious first-year B.Tech student specializing in Artificial Intelligence &amp; Machine Learning at JECRC University, with strong foundational knowledge in Python, C, and core computer science fundamentals. Driven to apply analytical problem-solving and software development skills to real-world challenges through hands-on technical projects, collaborative hackathons, and early engineering internship opportunities.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. EDUCATION -->
+    <section class="section" id="education" aria-labelledby="sec-education">
+      <h2 class="section-title" id="sec-education">Education</h2>
+      <div class="section-content">
+        
+        <!-- College Degree -->
+        <article class="timeline-item">
+          <div class="item-header">
+            <div>
+              <span class="item-title">B.Tech in Artificial Intelligence &amp; Machine Learning</span>
+              <span class="item-subtitle"> — JECRC University, Jaipur</span>
+            </div>
+            <span class="item-meta">2026 – 2030</span>
+          </div>
+          <div class="item-subtext">
+            <span>Specialization / Curriculum Track: <strong class="tag-highlight">In Collaboration with IBM</strong></span>
+            &nbsp;•&nbsp;
+            <span>Relevant Coursework: <span class="editable-field" data-field="coursework">Problem Solving using C &amp; Python, AI &amp; ML Foundations, Discrete Mathematics, Data Basics</span></span>
+          </div>
+        </article>
+
+        <!-- Schooling -->
+        <div class="edu-grid" style="margin-top: 4px;">
+          <div class="school-row">
+            <div>
+              <strong class="item-title">Senior Secondary (Class XII)</strong>
+              <span class="item-subtitle"> — CBSE</span>
+              <span class="item-subtext"> | Science (PCM) | <span class="editable-field" data-field="school-12">[School Name, City]</span></span>
+            </div>
+            <span class="item-meta"><span class="editable-field" data-field="year-12">[Year]</span> | Score: <span class="editable-field" data-field="score-12">[Percentage / Grade]</span></span>
+          </div>
+          <div class="school-row">
+            <div>
+              <strong class="item-title">Secondary School (Class X)</strong>
+              <span class="item-subtitle"> — RBSE</span>
+              <span class="item-subtext"> | <span class="editable-field" data-field="school-10">[School Name, City]</span></span>
+            </div>
+            <span class="item-meta"><span class="editable-field" data-field="year-10">[Year]</span> | Score: <span class="editable-field" data-field="score-10">[Percentage / Grade]</span></span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. TECHNICAL SKILLS -->
+    <section class="section" id="skills" aria-labelledby="sec-skills">
+      <h2 class="section-title" id="sec-skills">Technical Skills</h2>
+      <div class="section-content skills-container">
+        
+        <div class="skill-row">
+          <span class="skill-category">Programming Languages:</span>
+          <span class="skill-list editable-field" data-field="skills-prog">Python (Core, Functional Basics, OOP Fundamentals), C (Structured Programming, Pointers, Memory Basics)</span>
+        </div>
+
+        <div class="skill-row">
+          <span class="skill-category">AI &amp; Machine Learning:</span>
+          <span class="skill-list editable-field" data-field="skills-aiml">Fundamentals of Artificial Intelligence, Machine Learning Concepts (Supervised/Unsupervised Basics), Data Analysis Concepts</span>
+        </div>
+
+        <div class="skill-row">
+          <span class="skill-category">Tools &amp; Technologies:</span>
+          <span class="skill-list editable-field" data-field="skills-tools">Git, GitHub (Version Control, Branching), Visual Studio Code (VS Code), Command Line / Bash Basics</span>
+        </div>
+
+        <div class="skill-row">
+          <span class="skill-category">Core Foundations:</span>
+          <span class="skill-list editable-field" data-field="skills-foundations">Algorithm Design Fundamentals, Logical Problem Solving, Modular Programming, Code Debugging</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. PROJECTS -->
+    <section class="section" id="projects" aria-labelledby="sec-projects">
+      <h2 class="section-title" id="sec-projects">Academic &amp; Technical Projects</h2>
+      <div class="section-content">
+
+        <!-- Project 1 Placeholder -->
+        <article class="project-card">
+          <div class="project-header">
+            <div class="project-title-group">
+              <span class="project-name editable-field" data-field="p1-title">[Project Name: AI/ML Mini-Project or Data Analysis Tool]</span>
+              <span class="project-tech editable-field" data-field="p1-tech">Technologies: Python, Math/Statistics, Git</span>
+            </div>
+            <a href="https://github.com/[your-handle]/[project-repo]" target="_blank" rel="noopener noreferrer" class="project-link editable-field" data-field="p1-link">[GitHub Link]</a>
+          </div>
+          <ul class="resume-bullets">
+            <li class="editable-field" data-field="p1-b1"><strong>Description:</strong> Designed and implemented a foundational Python project to demonstrate practical understanding of data processing logic and core algorithmic workflows.</li>
+            <li class="editable-field" data-field="p1-b2"><strong>My Contribution:</strong> Formulated procedural logic, structured modular functions, tested edge cases, and tracked source code iterations using Git and GitHub.</li>
+          </ul>
+        </article>
+
+        <!-- Project 2 Placeholder -->
+        <article class="project-card">
+          <div class="project-header">
+            <div class="project-title-group">
+              <span class="project-name editable-field" data-field="p2-title">[Project Name: Algorithmic Console Application / Problem-Solving System]</span>
+              <span class="project-tech editable-field" data-field="p2-tech">Technologies: C / Python, VS Code</span>
+            </div>
+            <a href="https://github.com/[your-handle]/[project-repo]" target="_blank" rel="noopener noreferrer" class="project-link editable-field" data-field="p2-link">[GitHub Link]</a>
+          </div>
+          <ul class="resume-bullets">
+            <li class="editable-field" data-field="p2-b1"><strong>Description:</strong> Developed a command-line interface (CLI) software application to automate data recording and simulate structured computational operations.</li>
+            <li class="editable-field" data-field="p2-b2"><strong>My Contribution:</strong> Engineered efficient control structures, validated input sanitization, and created clean documentation for peer code reviews.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 6. EXPERIENCE / ACTIVITIES -->
+    <section class="section" id="experience" aria-labelledby="sec-experience">
+      <h2 class="section-title" id="sec-experience">Experience &amp; Campus Activities</h2>
+      <div class="section-content">
+
+        <article class="activity-item">
+          <div class="item-header">
+            <div>
+              <span class="item-title editable-field" data-field="exp1-role">Active Participant &amp; Student Member — Makerspace / Technical Community</span>
+              <span class="item-subtitle"> — JECRC University</span>
+            </div>
+            <span class="item-meta editable-field" data-field="exp1-meta">2024 – Present</span>
+          </div>
+          <ul class="resume-bullets">
+            <li class="editable-field" data-field="exp1-b1">Engaging in collaborative technical workshops, hands-on maker sessions, and peer learning initiatives centered on emerging technologies and practical engineering.</li>
+            <li class="editable-field" data-field="exp1-b2">Collaborating with multidisciplinary student teams during internal ideation sessions and technology showcase events.</li>
+          </ul>
+        </article>
+
+        <article class="activity-item">
+          <div class="item-header">
+            <div>
+              <span class="item-title editable-field" data-field="exp2-role">Technical Workshops &amp; College Hackathon Participation</span>
+              <span class="item-subtitle"> — Technical Clubs / Campus Events</span>
+            </div>
+            <span class="item-meta editable-field" data-field="exp2-meta">2024 – Present</span>
+          </div>
+          <ul class="resume-bullets">
+            <li class="editable-field" data-field="exp2-b1">Participated in introductory AI/ML sessions, coding bootcamps, and developer meetups to expand practical programming proficiency.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 7. CERTIFICATIONS & ACHIEVEMENTS -->
+    <section class="section" id="certifications" aria-labelledby="sec-certifications">
+      <h2 class="section-title" id="sec-certifications">Certifications &amp; Achievements</h2>
+      <div class="section-content">
+        <ul class="cert-list">
+          <li class="editable-field" data-field="cert-1">
+            <strong>IBM AI Curriculum Track:</strong> Actively completing specialized module coursework on Artificial Intelligence foundations and applied computing concepts (2024 – 2025).
+          </li>
+          <li class="editable-field" data-field="cert-2">
+            <strong>[Certification / Course Placeholder]:</strong> [e.g., Python for Everybody / Introduction to Machine Learning — Authorized by Coursera / NPTEL / IBM / University Workshop, Year].
+          </li>
+          <li class="editable-field" data-field="cert-3">
+            <strong>[Achievement / Competition Placeholder]:</strong> [e.g., Selected for Department Technical Presentation / Coding Competition Participant / Academic Excellence Recognition, Year].
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 8. SOFT SKILLS -->
+    <section class="section" id="softskills" aria-labelledby="sec-softskills">
+      <h2 class="section-title" id="sec-softskills">Soft Skills</h2>
+      <div class="section-content">
+        <p class="pill-inline editable-field" data-field="soft-skills">
+          Analytical Problem Solving • Algorithmic Thinking • Effective Communication • Team Collaboration • Creativity &amp; Innovation • High Adaptability • Fast Learner &amp; Continuous Improvement
+        </p>
+      </div>
+    </section>
+
+    <!-- 9. INTERESTS -->
+    <section class="section" id="interests" aria-labelledby="sec-interests">
+      <h2 class="section-title" id="sec-interests">Interests</h2>
+      <div class="section-content">
+        <p class="pill-inline editable-field" data-field="interests">
+          Artificial Intelligence &amp; Neural Systems • Machine Learning Research • Algorithmic Problem Solving • Robotics &amp; Automation • Emerging Technology &amp; Open Source Software
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Resume Logic: Live Editing, Auto-Save, ATS Text Copy, and Print -->
+  <script>
+    (function () {
+      const btnPrint = document.getElementById('btnPrint');
+      const btnEdit = document.getElementById('btnEdit');
+      const btnReset = document.getElementById('btnReset');
+      const btnCopyText = document.getElementById('btnCopyText');
+      const toastMsg = document.getElementById('toastMsg');
+      const editableFields = document.querySelectorAll('.editable-field');
+      const STORAGE_KEY = 'deepanshi_resume_data_v2';
+
+      let isEditing = false;
+
+      // Print Handler
+      btnPrint.addEventListener('click', () => {
+        window.print();
+      });
+
+      // Load Saved Local Data if exists
+      function loadSavedData() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (!saved) return;
+        try {
+          const data = JSON.parse(saved);
+          editableFields.forEach(el => {
+            const key = el.getAttribute('data-field');
+            if (key && data[key] !== undefined) {
+              el.innerHTML = data[key];
+            }
+          });
+          btnReset.style.display = 'inline-flex';
+        } catch (e) {
+          console.error('Failed to load saved resume data', e);
+        }
+      }
+
+      // Save Data to LocalStorage
+      function saveData() {
+        const data = {};
+        editableFields.forEach(el => {
+          const key = el.getAttribute('data-field');
+          if (key) {
+            data[key] = el.innerHTML;
+          }
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        showToast('Changes Saved!');
+      }
+
+      function showToast(msg) {
+        toastMsg.textContent = msg;
+        toastMsg.style.display = 'inline-block';
+        setTimeout(() => {
+          toastMsg.style.display = 'none';
+        }, 2200);
+      }
+
+      // Toggle Edit Mode
+      btnEdit.addEventListener('click', () => {
+        isEditing = !isEditing;
+        document.body.classList.toggle('is-editing', isEditing);
+
+        editableFields.forEach(el => {
+          el.setAttribute('contenteditable', isEditing ? 'true' : 'false');
+          if (isEditing) {
+            el.addEventListener('blur', saveData);
+          } else {
+            el.removeEventListener('blur', saveData);
+          }
+        });
+
+        if (isEditing) {
+          btnEdit.innerHTML = '💾 Done Editing';
+          btnEdit.classList.remove('btn-secondary');
+          btnEdit.classList.add('btn-primary');
+          btnReset.style.display = 'inline-flex';
+          showToast('Edit Mode Active: Click text to edit');
+        } else {
+          btnEdit.innerHTML = '✏️ Edit Resume';
+          btnEdit.classList.remove('btn-primary');
+          btnEdit.classList.add('btn-secondary');
+          saveData();
+        }
+      });
+
+      // Reset to original template
+      btnReset.addEventListener('click', () => {
+        if (confirm('Reset resume to original template? All custom text will be cleared.')) {
+          localStorage.removeItem(STORAGE_KEY);
+          location.reload();
+        }
+      });
+
+      // Copy Plaintext ATS
+      btnCopyText.addEventListener('click', () => {
+        const resume = document.getElementById('resumeContent');
+        const text = resume.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          showToast('Plaintext Copied for ATS portals!');
+        }).catch(() => {
+          showToast('Error copying text.');
+        });
+      });
+
+      // Initialize
+      loadSavedData();
+    })();
+  </script>
+</body>
+</html>
