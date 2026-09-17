@@ -1,0 +1,605 @@
+/* ==========================================================================
+   RESUME DESIGN SYSTEM — DEEPANSHI (B.TECH AI & ML)
+   Aesthetic: Modern Technical Minimalist / Executive Clean
+   Target: Single-page A4 print & screen layout with ATS compliance
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+:root {
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Color Palette — Refined Slate & Deep Navy Accent */
+  --text-primary: #0f172a;       /* Slate 900 */
+  --text-secondary: #334155;     /* Slate 700 */
+  --text-muted: #64748b;         /* Slate 500 */
+  --accent-primary: #1e3a8a;     /* Deep Navy / Classic Professional */
+  --accent-secondary: #2563eb;   /* Modern Cobalt */
+  --border-light: #e2e8f0;       /* Slate 200 */
+  --border-accent: #cbd5e1;      /* Slate 300 */
+  --bg-page: #ffffff;
+  --bg-body: #f1f5f9;            /* Slate 100 for screen backdrop */
+  --bg-badge: #f8fafc;
+  --badge-border: #e2e8f0;
+
+  /* Spacing Budget for Strict 1-Page A4 (297mm height) */
+  --page-width: 210mm;
+  --page-height: 297mm;
+  --page-padding: 12mm 14mm;
+  --section-gap: 9px;
+  --item-gap: 5px;
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 13.5px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  line-height: 1.38;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 24px 12px 60px;
+}
+
+/* ==========================================================================
+   FLOATING ACTION TOOLBAR (Hidden on Print)
+   ========================================================================== */
+.toolbar-container {
+  width: 100%;
+  max-width: 820px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: #ffffff;
+  padding: 12px 18px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+  border: 1px solid var(--border-light);
+}
+
+.toolbar-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toolbar-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: #eff6ff;
+  color: var(--accent-secondary);
+  padding: 2px 8px;
+  border-radius: 9999px;
+  border: 1px solid #bfdbfe;
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.btn-primary {
+  background: var(--accent-primary);
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(30, 58, 138, 0.2);
+}
+
+.btn-primary:hover {
+  background: #172554;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--text-secondary);
+  border-color: var(--border-light);
+}
+
+.btn-secondary:hover {
+  background: #f8fafc;
+  border-color: var(--border-accent);
+  color: var(--text-primary);
+}
+
+.btn-outline-active {
+  background: #fef2f2;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+/* Notification Toast */
+.toast-msg {
+  font-size: 0.75rem;
+  color: #15803d;
+  background: #f0fdf4;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid #bbf7d0;
+  display: none;
+}
+
+/* ==========================================================================
+   RESUME PAGE CONTAINER (Strict A4 Bounds)
+   ========================================================================== */
+.resume-sheet {
+  width: var(--page-width);
+  min-height: var(--page-height);
+  max-height: var(--page-height);
+  background-color: var(--bg-page);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12), 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: var(--page-padding);
+  box-sizing: border-box;
+  overflow: hidden; /* Guarantees strict single-page constraint */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Visual Edit Mode Indicator */
+body.is-editing .resume-sheet {
+  outline: 2px dashed var(--accent-secondary);
+  outline-offset: 4px;
+}
+
+body.is-editing [contenteditable="true"] {
+  background-color: rgba(239, 246, 255, 0.45);
+  outline: 1px solid #bfdbfe;
+  border-radius: 2px;
+  padding: 1px 3px;
+  transition: background 0.15s ease;
+}
+
+/* ==========================================================================
+   RESUME HEADER (Section 1)
+   ========================================================================== */
+.resume-header {
+  text-align: center;
+  padding-bottom: 9px;
+  border-bottom: 2px solid var(--accent-primary);
+  margin-bottom: var(--section-gap);
+}
+
+.applicant-name {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.applicant-title {
+  font-family: var(--font-heading);
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  letter-spacing: 0.01em;
+  margin-bottom: 2px;
+}
+
+.applicant-institution {
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+
+.contact-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact-icon {
+  width: 12px;
+  height: 12px;
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
+.contact-item a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-item a:hover {
+  color: var(--accent-secondary);
+  text-decoration: underline;
+}
+
+.contact-sep {
+  color: var(--border-accent);
+  font-weight: 300;
+  user-select: none;
+}
+
+/* ==========================================================================
+   RESUME SECTIONS (Sections 2 through 9)
+   ========================================================================== */
+.section {
+  margin-bottom: var(--section-gap);
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+/* ATS-Standard Section Header */
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-light);
+}
+
+/* General Text Styling */
+.section-content {
+  font-size: 0.79rem;
+  color: var(--text-secondary);
+}
+
+.objective-text {
+  font-size: 0.80rem;
+  color: var(--text-secondary);
+  text-align: justify;
+  line-height: 1.42;
+}
+
+/* ==========================================================================
+   EDUCATION (Section 3)
+   ========================================================================== */
+.timeline-item {
+  margin-bottom: var(--item-gap);
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1px;
+}
+
+.item-title {
+  font-family: var(--font-heading);
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.item-subtitle {
+  font-size: 0.80rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+}
+
+.item-meta {
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.item-subtext {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+.tag-highlight {
+  font-weight: 600;
+  color: var(--accent-primary);
+}
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+}
+
+.school-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.78rem;
+}
+
+/* ==========================================================================
+   TECHNICAL SKILLS (Section 4)
+   ========================================================================== */
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.skill-row {
+  display: flex;
+  align-items: baseline;
+  font-size: 0.79rem;
+  line-height: 1.36;
+}
+
+.skill-category {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text-primary);
+  min-width: 155px;
+  flex-shrink: 0;
+  font-size: 0.79rem;
+}
+
+.skill-list {
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+/* ==========================================================================
+   PROJECTS (Section 5)
+   ========================================================================== */
+.project-card {
+  margin-bottom: 6px;
+}
+
+.project-card:last-child {
+  margin-bottom: 0;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2px;
+}
+
+.project-title-group {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.project-name {
+  font-family: var(--font-heading);
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.project-tech {
+  font-size: 0.73rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  background: #f1f5f9;
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+}
+
+.project-link {
+  font-size: 0.73rem;
+  color: var(--accent-secondary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+/* Bullet Points */
+.resume-bullets {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 2px;
+}
+
+.resume-bullets li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 0.77rem;
+  line-height: 1.35;
+  color: var(--text-secondary);
+  margin-bottom: 2px;
+}
+
+.resume-bullets li:last-child {
+  margin-bottom: 0;
+}
+
+.resume-bullets li::before {
+  content: '▪';
+  position: absolute;
+  left: 0;
+  color: var(--accent-primary);
+  font-size: 0.8rem;
+  line-height: 1.2;
+}
+
+/* ==========================================================================
+   EXPERIENCE / ACTIVITIES (Section 6)
+   ========================================================================== */
+.activity-item {
+  margin-bottom: 5px;
+}
+
+.activity-item:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   CERTIFICATIONS & ACHIEVEMENTS (Section 7)
+   ========================================================================== */
+.cert-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.cert-list li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 0.77rem;
+  line-height: 1.35;
+  color: var(--text-secondary);
+  margin-bottom: 2px;
+}
+
+.cert-list li:last-child {
+  margin-bottom: 0;
+}
+
+.cert-list li::before {
+  content: '▪';
+  position: absolute;
+  left: 0;
+  color: var(--accent-primary);
+  font-size: 0.8rem;
+  line-height: 1.2;
+}
+
+/* ==========================================================================
+   SOFT SKILLS (Section 8) & INTERESTS (Section 9)
+   ========================================================================== */
+.pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 0.76rem;
+  line-height: 1.3;
+}
+
+.pill-inline {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.placeholder-tag {
+  background-color: #fef3c7;
+  color: #92400e;
+  border-radius: 3px;
+  padding: 0 4px;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   PRINT MEDIA RULES — PERFECT 1-PAGE GUARANTEE
+   ========================================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0; /* Let .resume-sheet define exact page padding */
+  }
+
+  html, body {
+    width: 210mm;
+    height: 297mm;
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .no-print, .toolbar-container, .toast-msg {
+    display: none !important;
+  }
+
+  .resume-sheet {
+    box-shadow: none !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    max-height: 297mm !important;
+    padding: var(--page-padding) !important;
+    margin: 0 !important;
+    page-break-inside: avoid !important;
+    page-break-after: avoid !important;
+    overflow: hidden !important;
+  }
+
+  /* Force accurate print colors */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+}
